@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaHome, FaMapMarkedAlt, FaTrophy, FaUserAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import Footer from './Footer';
 import { FaPlane, FaMap, FaStar, FaUsers, FaCompass, FaMedal, FaCoins, FaGlobe } from "react-icons/fa"; // Import additional icons
 
 const LandingPage = () => {
@@ -85,7 +86,7 @@ const LandingPage = () => {
               <h2 className="text-6xl font-extrabold text-emerald-900 mb-4  leading-tight">
                 Let's Discover the World Together
               </h2>
-              <p className="text-4xl text-emerald-800 mb-8 font-qwitcher font-bold">
+              <p className="text-4xl text-emerald-800 mb-8 font-playfair font-bold">
                 Let us take you away on your best trip ever
               </p>
 
@@ -148,9 +149,12 @@ const LandingPage = () => {
             <FaGlobe className="text-4xl" />
             <span>Experience</span>
           </motion.div>
+          
         </div>
       </div>
-    </div>
+    
+  </div>
+      
   );
 };
 

@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Signin";
 import About from "./components/Aboutus";
 import FeatureCarousel from "./components/Carousel";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -17,8 +18,10 @@ const App = () => {
             <Route path="/" element={<Landing />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<Login />} />
+            
           </Routes>
         </main>
+        <Footer/>
       </div>
     </Router>
   );
@@ -30,6 +33,7 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      
       
       </div>
 );

@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="py-16 text-center bg-white mt-8">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold mb-6 text-emerald-800" id="about-section">About Our Gamified Tourism Platform</h2>
+        <h2 className="text-4xl  font-bold mb-6 text-emerald-800" id="about-section">About Our Gamified Tourism Platform</h2>
         <TypingEffect
           text={['Explore Hidden Gems Like Never Before', 'Transform Your Travels into an Adventure']}
           className="text-2xl font-semibold text-green-700"

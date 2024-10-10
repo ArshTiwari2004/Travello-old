@@ -6,7 +6,11 @@ module.exports = {
         fontFamily: {
             qwitcher: ['"Qwitcher Grypen"', 'cursive'],
             caveat: ['"Caveat"', 'cursive'],
-          },
+            roboto: ['Roboto', 'sans-serif'],
+            playfair: ['Playfair Display', 'serif'],
+            
+            
+            },
 
 
       },
