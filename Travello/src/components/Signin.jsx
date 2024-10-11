@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { HiMail, HiLockClosed } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -28,6 +30,10 @@ const Login = () => {
     console.log('Form Data:', formData);
     // Handle form submission logic here
   };
+
+  const handleSubmitt = () => {
+    navigate('/dashboard'); // Redirect to /dashboard
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-green-200">
@@ -67,6 +73,7 @@ const Login = () => {
             Forgot Password?
           </button>
           <button
+          onclick={handleSubmitt}
             type="submit"
             className="w-full p-3 bg-emerald-800 text-white rounded hover:bg-emerald-700 transition duration-200"
           >

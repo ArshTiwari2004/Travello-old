@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import countries from './countries';
 import { HiUser, HiMail, HiLockClosed, HiLocationMarker, HiPhone } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -50,9 +53,15 @@ const Signup = () => {
     // Handle form submission logic here
   };
 
+  const handleCreateAccount = () => {
+  
+    navigate('/accountcreated'); // Redirect to /account-created
+  }
+
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-green-200">
-      {/* Centered Form Container */}
+    
       <div className="flex flex-col justify-center items-center p-10 w-full max-w-md bg-white shadow-lg rounded-lg">
         <h1 className="text-4xl font-bold mb-1 text-emerald-800">Sign Up</h1>
         <p className="text-lg text-gray-600 mb-4">It's quick and easy!</p>
@@ -69,7 +78,7 @@ const Signup = () => {
                 required
                 className="w-full p-1 border-0 focus:outline-none"
               />
-            </div>
+           </div>
             <div className="flex items-center w-full border-b border-black pb-2 mb-4">
               <HiUser className="text-gray-400 w-5 h-5 mx-2" />
               <input
@@ -188,8 +197,9 @@ const Signup = () => {
           >
             Forgot Password?
           </button>
-          <button
+          <button to="/account-created" 
             type="submit"
+            onClick={handleCreateAccount}
             className="w-full p-3 bg-emerald-800 text-white rounded hover:bg-emerald-700 transition duration-200"
           >
             Create Account
