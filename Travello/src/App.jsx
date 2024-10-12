@@ -5,6 +5,9 @@ import Signup from "./components/Signup";
 import Login from "./components/Signin";
 import About from "./components/Aboutus";
 import FeatureCarousel from "./components/Carousel";
+
+import Footer from "./components/Footer";
+
 import AccountCreated from "./components/Accountcreated";
 import Dashboard from "./components/Dashboard";
 import SocialIntegration from "./components/Socials.jsx";
@@ -15,6 +18,7 @@ import { AuthProvider } from './context/authContext.jsx';
 import { Toaster } from 'react-hot-toast';
 import Profile from "./components/Profile";
 import Localculture from "./components/localcultureimmersion";
+
 
 
 
@@ -30,7 +34,9 @@ const App = () => {
             {/* Landing page route */}
             <Route path="/" element={<Landing />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/signin" element={<Login />} />
+            <Route path="/signin" element={<Login />
+            
+     
             <Route path="/accountcreated" element={<AccountCreated />} />
             <Route path="/dashboard" element={<Dashboard />} /> 
             <Route path="/socials" element={<SocialIntegration />} />
@@ -39,7 +45,9 @@ const App = () => {
             <Route path="/profile" element={<Profile />}/>
             <Route path="/localculture" element={<Localculture />}/>
             </Routes>
+
         </main>
+        <Footer/>
       </div>
     </Router>
     <Toaster />

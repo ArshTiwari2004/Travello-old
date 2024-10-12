@@ -2,7 +2,20 @@
 module.exports = {
     darkMode: ["class"],
     content: ["./src/**/*.{html,js,jsx}"],
-    theme: {
+    theme:
+      extend: {
+        fontFamily: {
+            qwitcher: ['"Qwitcher Grypen"', 'cursive'],
+            caveat: ['"Caveat"', 'cursive'],
+            roboto: ['Roboto', 'sans-serif'],
+            playfair: ['Playfair Display', 'serif'],
+            
+            
+            },
+
+
+      },
+
     	extend: {
     		fontFamily: {
     			qwitcher: ['Qwitcher Grypen"', 'cursive'],
@@ -56,6 +69,7 @@ module.exports = {
     			}
     		}
     	}
+
     },
     plugins: [require("tailwindcss-animate")],
   }
