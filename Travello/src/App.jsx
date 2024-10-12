@@ -34,7 +34,7 @@ const App = () => {
             {/* Landing page route */}
             <Route path="/" element={<Landing />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/signin" element={<Login />
+            <Route path="/signin" element={<Login />} />
             
      
             <Route path="/accountcreated" element={<AccountCreated />} />
