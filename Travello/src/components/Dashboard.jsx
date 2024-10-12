@@ -90,6 +90,7 @@ const Dashboard = () => {
                     <Link to="/my-badges" className="text-teal-900 font-semibold  hover:text-sky-400">My Badges</Link>
                     <Link to="/challenges" className="text-teal-900 font-semibold   hover:text-sky-400">My Challenges</Link>
                     <Link to="/levels" className="text-teal-900 font-semibold hover:text-sky-400">Levels</Link>
+                    <Link to="/localculture" className="text-teal-900 font-semibold  hover:text-sky-400">Explore local culture</Link>
 
                     <Link to="/" className="text-teal-900 flex items-center font-bold border border-red-600 p-2 hover:text-sky-400">
                         <FaHome className="mr-2" /> Home
