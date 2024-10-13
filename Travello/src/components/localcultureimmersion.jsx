@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Localculture = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-
   const categories = [
     {
       title: 'Local Cuisines',
@@ -13,7 +11,7 @@ const Localculture = () => {
     {
       title: 'Cultural Activities',
       description: 'Join traditional festivals, local ceremonies, and artistic performances.',
-      image: 'https://images.jdmagicbox.com/quickquotes/listicle/listicle_1686140315148_74ycs_1040x500.jpg',
+      image: 'https://www.adotrip.com/public/images/festivals/master_images/5c3f0b73e2ee6-Tendong_Lho_Rum_Faat_Attractions.jpg',
       backgroundColor: '#fbbf24', // Yellow
     },
     {
@@ -33,12 +31,6 @@ const Localculture = () => {
       description: 'Stay with local families to experience daily life.',
       image: 'https://t3.ftcdn.net/jpg/03/95/31/38/360_F_395313832_J5yId6zZgFo8F9xLgEX7alsITys2xhV7.jpg',
       backgroundColor: '#4f46e5', // Indigo
-    },
-    {
-      title: 'Traditional Music & Dance',
-      description: 'Experience local music and dance performances, or learn the art yourself!',
-      image: 'https://img.freepik.com/premium-photo/cultural-performance-showcasing-traditional-indian-music-dance-forms-representing-rich-cu_890802-1462.jpg',
-      backgroundColor: '#eab308', // Gold
     },
   ];
 
@@ -72,12 +64,6 @@ const Localculture = () => {
       description: 'Explore India’s spiritual capital and witness the ancient rituals on the Ganges.',
       image: 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/71/af/10.jpg',
       backgroundColor: '#f97316', // Orange
-    },
-    {
-      title: 'Wildlife Safari in Ranthambore',
-      description: 'Experience the thrill of seeing majestic tigers in their natural habitat.',
-      image: 'https://www.ranthamborenationalpark.in/blog/wp-content/uploads/2021/12/Ranthambore-National-Park-Wildlife.jpg',
-      backgroundColor: '#8b5cf6', // Purple
     },
   ];
 
@@ -201,15 +187,15 @@ const Localculture = () => {
     <div style={styles.container}>
       {/* Hero Section */}
       <div style={styles.hero}>
-        <h1 style={styles.heroHeading}>Explore Local Immersions</h1>
+        <h1 style={styles.heroHeading}>Discover True Local Experiences</h1>
         <p style={styles.heroText}>
-          Dive deep into the heart of cultures with our local immersion programs. Discover authentic experiences, local flavors, and meaningful connections.
+          Step into the heart of local culture, traditions, and communities. Explore authentic experiences that go beyond the usual tourist spots.
         </p>
-        <button style={styles.button}>Start Your Journey</button>
+        <button style={styles.button}>Explore Local Immersions</button>
       </div>
 
-      {/* Immersion Categories Section with Cards */}
-      <div style={{ marginTop: '50px' }}>
+      {/* Immersion Categories Section with Cyan Background */}
+      <div style={{ marginTop: '50px', backgroundColor: '#e0f9ff', padding: '20px', borderRadius: '10px' }}>
         <h2 style={styles.sectionTitle}>Why Local Immersion?</h2>
         <div style={styles.grid}>
           {categories.map((category, index) => (
@@ -233,9 +219,9 @@ const Localculture = () => {
         </div>
       </div>
 
-      {/* Experience Section with Cards */}
-      <div style={{ marginTop: '50px' }}>
-        <h2 style={styles.sectionTitle}>Immersive Experiences</h2>
+      {/* Top Experiences Section with Green Background */}
+      <div style={{ marginTop: '50px', backgroundColor: '#d1fae5', padding: '20px', borderRadius: '10px' }}>
+        <h2 style={styles.sectionTitle}>Top Experiences in India</h2>
         <div style={styles.grid}>
           {experiences.map((experience, index) => (
             <div
@@ -265,7 +251,6 @@ const Localculture = () => {
           <div
             key={index}
             style={styles.faqItem}
-            onClick={() => setActiveIndex(index === activeIndex ? null : index)}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#d1fae5';
             }}
@@ -274,7 +259,7 @@ const Localculture = () => {
             }}
           >
             <div style={styles.faqQuestion}>{faq.question}</div>
-            {activeIndex === index && <div style={styles.faqAnswer}>{faq.answer}</div>}
+            <div style={styles.faqAnswer}>{faq.answer}</div>
           </div>
         ))}
       </div>
