@@ -113,7 +113,7 @@ const Dashboard = () => {
                         <Link to="/leaderboard" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaUsers className="mr-3" /> Leaderboard
                         </Link>
-                        <Link to="/my-quests" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/quests" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaCamera className="mr-3" /> My Quests
                         </Link>
                         <Link to="/my-itinerary" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
@@ -122,6 +122,11 @@ const Dashboard = () => {
                         <Link to="/my-badges" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaTrophy className="mr-3" /> My Badges
                         </Link>
+                        <Link to="/challenges" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaTrophy className="mr-3" /> My Challenges
+                        </Link>
+                        
+                        
                     </div>
                 </div>
                 <Link to="/profile" className="text-white flex items-center text-xl font-bold hover:text-gray-300">
