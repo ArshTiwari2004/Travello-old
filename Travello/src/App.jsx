@@ -18,6 +18,7 @@ import { AuthProvider } from './context/authContext.jsx';
 import { Toaster } from 'react-hot-toast';
 import Profile from "./components/Profile";
 import Localculture from "./components/localcultureimmersion";
+import Quests from "./components/Quests";
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/challenges" element={<CompleteChallengesPage />} />
             <Route path="/profile" element={<Profile />}/>
             <Route path="/localculture" element={<Localculture />}/>
+            <Route path="/quests" element={<Quests />} />
             </Routes>
 
         </main>

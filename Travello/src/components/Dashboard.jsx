@@ -85,7 +85,7 @@ const Dashboard = () => {
                     <Link to="/hidden-attraction-maps" className=" text-teal-900 font-semibold  hover:text-sky-400">Hidden Attraction Maps</Link>
                     <Link to="/socials" className="text-teal-900 font-semibold  hover:text-sky-400">Link your Socials</Link>
                     <Link to="/leaderboard" className="text-teal-900 font-semibold   hover:text-sky-400">Leaderboard</Link>
-                    <Link to="/my-quests" className="text-teal-900 font-semibold   hover:text-sky-400">My Quests</Link>
+                    <Link to="/quests" className="text-teal-900 font-semibold   hover:text-sky-400">My Quests</Link>
                     <Link to="/my-itinerary" className="text-teal-900 font-semibold   hover:text-sky-400">My Itinerary</Link>
                     <Link to="/my-badges" className="text-teal-900 font-semibold  hover:text-sky-400">My Badges</Link>
                     <Link to="/challenges" className="text-teal-900 font-semibold   hover:text-sky-400">My Challenges</Link>
