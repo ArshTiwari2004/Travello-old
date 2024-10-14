@@ -45,7 +45,7 @@ const App = () => {
             <Route path="/challenges" element={<CompleteChallengesPage />} />
             <Route path="/profile" element={<Profile />}/>
             <Route path="/localculture" element={<Localculture />}/>
-            <Route path="/quests" element={<Quests />} />
+            <Route path="/quests" element={<Quests />}/>
             </Routes>
 
         </main>

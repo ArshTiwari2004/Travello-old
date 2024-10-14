@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
-import CustomGamificationComponent from './CustomGame'; 
+import CustomGamificationComponent from './CustomGame';
 
 // Custom GameComponent
 const GameComponent = ({ onChallengeComplete }) => {
@@ -11,20 +11,24 @@ const GameComponent = ({ onChallengeComplete }) => {
   };
 
   const completeGame = () => {
-    onChallengeComplete(); 
+    onChallengeComplete();
     setGameStarted(false);
   };
 
   return (
     <div style={gameStyle}>
-      <h3>Custom Game Component</h3>
+      <h3 style={subHeadingStyle}>Custom Game Component</h3>
       {gameStarted ? (
-        <div>
+        <div style={gameContentStyle}>
           <p>Game in progress... (simulate your game logic here)</p>
-          <button style={gameButtonStyle} onClick={completeGame}>Complete Game</button>
+          <button style={gameButtonStyle} onClick={completeGame}>
+            Complete Game
+          </button>
         </div>
       ) : (
-        <button style={gameButtonStyle} onClick={startGame}>Start Game</button>
+        <button style={gameButtonStyle} onClick={startGame}>
+          Start Game
+        </button>
       )}
     </div>
   );
@@ -34,7 +38,6 @@ const CompleteChallengesPage = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [userPoints, setUserPoints] = useState(0);
 
-  // Sample data for challenges and quests
   const challenges = [
     { id: 1, type: 'Photo', description: 'Take a picture of a landmark' },
     { id: 2, type: 'Time-Based', description: 'Complete before sunset' },
@@ -56,13 +59,19 @@ const CompleteChallengesPage = () => {
     }
   }, [showConfetti]);
 
+  const handleProfileClick = () => {
+    alert('Profile Clicked!'); // Replace with actual navigation or profile logic
+  };
+
   return (
     <div className="complete-challenges-page" style={pageStyle}>
       <div style={headerStyle}>
-        <h2 style={headingStyle}>Challenges and Quests Platform</h2>
+        <h2 style={headingStyle}>Challenges</h2>
         <div style={userProfileStyle}>
-          <img src="user-profile-pic.png" alt="User" style={profilePicStyle} />
-          <span>Username</span>
+          <button onClick={handleProfileClick} style={profileButtonStyle}>
+            <img src="user-profile-pic.png" alt="User" style={profilePicStyle} />
+            <span style={usernameStyle}>Username</span>
+          </button>
           <div style={socialShareStyle}>
             <button style={shareButtonStyle}>Share My Ranking</button>
             <span> on </span>
@@ -72,22 +81,28 @@ const CompleteChallengesPage = () => {
           </div>
         </div>
       </div>
+
       {showConfetti && <Confetti />}
+
+      {/* Custom Game Component at the top */}
+      <GameComponent onChallengeComplete={handleChallengeCompletion} />
+
+      {/* Main Content Sections */}
       <div style={contentStyle}>
-        <GameComponent onChallengeComplete={handleChallengeCompletion} /> 
-        <CustomGamificationComponent points={userPoints} />
         <div style={sectionStyle}>
-          <h3>Active Challenges</h3>
+          <h3 style={subHeadingStyle}>Active Challenges</h3>
           {challenges.map((challenge) => (
             <div key={challenge.id} style={challengeBoxStyle}>
               <p>{challenge.description}</p>
-              <button style={completeButtonStyle} onClick={handleChallengeCompletion}>Complete Challenge</button>
+              <button style={completeButtonStyle} onClick={handleChallengeCompletion}>
+                Complete Challenge
+              </button>
             </div>
           ))}
         </div>
 
         <div style={sectionStyle}>
-          <h3>Quests</h3>
+          <h3 style={subHeadingStyle}>Quests</h3>
           {quests.map((quest) => (
             <div key={quest.id} style={questBoxStyle}>
               <h4>{quest.name}</h4>
@@ -101,7 +116,7 @@ const CompleteChallengesPage = () => {
         </div>
 
         <div style={sectionStyle}>
-          <h3>Rewards & Badges</h3>
+          <h3 style={subHeadingStyle}>Rewards & Badges</h3>
           <p>Total Points: {userPoints}</p>
           <div style={badgeContainerStyle}>
             <div style={badgeStyle}>Beginner</div>
@@ -114,23 +129,31 @@ const CompleteChallengesPage = () => {
   );
 };
 
-
+// Updated styles
 const pageStyle = {
   padding: '20px',
-  backgroundColor: '#f8f9fa',
-  fontFamily: 'Arial, sans-serif',
+  background: 'linear-gradient(120deg, #f3e7d0, #66b3d1)', // Beach sand to ocean water gradient
+  fontFamily: "'Poppins', sans-serif", // Modern font
+  minHeight: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 };
 
 const headerStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginBottom: '20px',
+  width: '100%',
+  marginBottom: '30px',
 };
 
 const headingStyle = {
-  fontSize: '28px',
-  color: '#333',
+  fontSize: '32px',
+  fontWeight: 'bold',
+  color: '#000000', // Black text for heading
+  letterSpacing: '1px',
+  textShadow: '1px 1px 3px rgba(0, 0, 0, 0.3)',
 };
 
 const userProfileStyle = {
@@ -139,102 +162,137 @@ const userProfileStyle = {
   gap: '10px',
 };
 
+const profileButtonStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+};
+
+const usernameStyle = {
+  marginLeft: '5px',
+  color: '#ffffff', // White text for username
+};
+
 const profilePicStyle = {
-  width: '40px',
-  height: '40px',
+  width: '45px',
+  height: '45px',
   borderRadius: '50%',
 };
 
 const socialShareStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '5px',
+  gap: '8px',
 };
 
 const shareButtonStyle = {
   backgroundColor: '#007bff',
   color: '#fff',
-  padding: '5px 10px',
+  padding: '6px 12px',
   border: 'none',
-  borderRadius: '5px',
+  borderRadius: '8px',
   cursor: 'pointer',
+  transition: 'background-color 0.3s',
+  boxShadow: '0 3px 6px rgba(0, 0, 0, 0.2)',
 };
 
 const iconStyle = {
-  fontSize: '20px',
+  fontSize: '22px',
   color: '#555',
   cursor: 'pointer',
 };
 
 const contentStyle = {
-  display: 'flex',
-  justifyContent: 'space-around',
-  flexWrap: 'wrap',
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
   gap: '20px',
+  maxWidth: '1200px',
+  width: '100%',
+  marginTop: '30px', // Space between the GameComponent and the content sections
 };
 
 const sectionStyle = {
-  backgroundColor: '#fff',
-  padding: '15px',
-  borderRadius: '10px',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  width: '30%',
+  backgroundColor: '#0f172a', 
+  color: '#ffffff', // White text for contrast
+  padding: '20px',
+  borderRadius: '15px',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // More pronounced box shadow for better depth
+  transition: 'transform 0.3s, box-shadow 0.3s',
+};
+
+const subHeadingStyle = {
+  fontSize: '20px',
+  fontWeight: '600',
+  color: '#ffffff', // White text for headings
+  marginBottom: '15px',
 };
 
 const challengeBoxStyle = {
-  backgroundColor: '#f1f1f1',
-  padding: '10px',
-  borderRadius: '8px',
-  margin: '10px 0',
+  backgroundColor: '#0e7490', 
+  padding: '12px',
+  borderRadius: '10px',
+  margin: '12px 0',
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+  transition: 'background-color 0.3s, box-shadow 0.3s',
 };
 
 const questBoxStyle = {
-  backgroundColor: '#e2e6ea',
-  padding: '10px',
-  borderRadius: '8px',
-  margin: '10px 0',
+  backgroundColor: '#0e7490', 
+  padding: '12px',
+  borderRadius: '10px',
+  margin: '12px 0',
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+  transition: 'background-color 0.3s, box-shadow 0.3s',
 };
 
 const completeButtonStyle = {
-  backgroundColor: '#28a745',
-  color: '#fff',
-  padding: '5px 10px',
+  backgroundColor: '#ffd60a',
+  color: '#212529',
+  padding: '8px 15px',
   border: 'none',
   borderRadius: '5px',
   cursor: 'pointer',
+  transition: 'background-color 0.3s',
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+};
+
+const gameStyle = {
+  backgroundColor: '#0e7490', // Outer box color: cyan-950
+  padding: '20px',
+  borderRadius: '15px',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Shadow for depth
+  marginBottom: '20px',
+};
+
+const gameContentStyle = {
+  textAlign: 'center',
+};
+
+const gameButtonStyle = {
+  backgroundColor: '#ff5722',
+  color: '#ffffff',
+  padding: '10px 20px',
+  border: 'none',
+  borderRadius: '8px',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s',
+  boxShadow: '0 3px 6px rgba(0, 0, 0, 0.3)',
 };
 
 const badgeContainerStyle = {
   display: 'flex',
-  gap: '10px',
+  justifyContent: 'space-around',
   marginTop: '10px',
 };
 
 const badgeStyle = {
-  backgroundColor: '#ffc107',
-  color: '#333',
-  padding: '5px 10px',
-  borderRadius: '5px',
-  fontSize: '14px',
-};
-
-// Inline styles for the GameComponent
-const gameStyle = {
-  backgroundColor: '#e0f7fa',
-  padding: '15px',
-  borderRadius: '10px',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  marginBottom: '20px',
-  width: '100%', // Full width in its section
-};
-
-const gameButtonStyle = {
-  backgroundColor: '#007bff',
-  color: '#fff',
-  padding: '5px 10px',
-  border: 'none',
-  borderRadius: '5px',
-  cursor: 'pointer',
+  backgroundColor: '#4caf50', // Green badge color
+  color: '#ffffff',
+  padding: '8px 12px',
+  borderRadius: '20px',
 };
 
 export default CompleteChallengesPage;
+
