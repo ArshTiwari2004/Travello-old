@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGoogle, FaSnapchat } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,10 +11,10 @@ const SocialIntegration = () => {
     instagram: false,
     linkedin: false,
     google: false,
+    snapchat: false,
   });
 
   const handleConnect = (platform) => {
-    // Simulating linking process with an API call placeholder
     setLinkedAccounts({ ...linkedAccounts, [platform]: true });
     toast.success(`Your ${platform.charAt(0).toUpperCase() + platform.slice(1)} account has been linked with Travello! Happy Travelloing!`, {
       position: "top-center",
@@ -24,65 +24,75 @@ const SocialIntegration = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-green-600 to-emerald-900 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-200 to-blue-400 flex flex-col items-center justify-center p-6">
       <ToastContainer />
-      <h1 className="text-4xl font-bold text-white mb-6">Connect Your Social Accounts</h1>
-      <p className="text-lg text-white font-semibold mb-10">Stay connected with your friends and share your Travello moments instantly , Happy Travelloing!</p>
+      <h1 className="text-5xl font-bold text-gray-900 mb-6 drop-shadow-lg">Connect Your Social Accounts</h1>
+      <p className="text-lg text-gray-900 font-semibold mb-10 text-center max-w-md">
+        Stay connected with your friends and share your Travello moments instantly. Happy Travelloing!
+      </p>
 
-      <div className="grid grid-cols-2 gap-8 mb-10">
-        <div className="flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-lg border-4 border-green-500">
-          <FaFacebook size={50} className="text-blue-600 mb-4" />
-          <button
-            onClick={() => handleConnect('facebook')}
-            className="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700"
+      <div className="grid grid-cols-2 gap-8 mb-10 md:grid-cols-3 lg:grid-cols-4">
+        {/* Social Account Cards */}
+        {[
+          { platform: 'facebook', icon: <FaFacebook size={60} />, bgColor: 'bg-blue-600', borderColor: 'border-blue-500' },
+          { platform: 'twitter', icon: <FaTwitter size={60} />, bgColor: 'bg-blue-400', borderColor: 'border-blue-300' },
+          { platform: 'instagram', icon: <FaInstagram size={60} />, bgColor: 'bg-pink-500', borderColor: 'border-pink-400' },
+          { platform: 'linkedin', icon: <FaLinkedin size={60} />, bgColor: 'bg-blue-700', borderColor: 'border-blue-600' },
+        ].map(({ platform, icon, bgColor, borderColor }) => (
+          <div
+            key={platform}
+            className={`flex flex-col items-center justify-center ${bgColor} text-white p-6 rounded-lg shadow-lg border-4 ${borderColor} transform transition-transform duration-300 hover:scale-105`}
           >
-            Connect Facebook
-          </button>
-        </div>
+            <div className={`mb-4 p-2 rounded-full ${bgColor} shadow-md`}>
+              {icon}
+            </div>
+            <button
+              onClick={() => handleConnect(platform)}
+              className={`text-white font-bold py-2 px-6 rounded-lg shadow-lg transition duration-300 hover:bg-opacity-80`}
+            >
+              Connect {platform.charAt(0).toUpperCase() + platform.slice(1)}
+            </button>
+          </div>
+        ))}
+      </div>
 
-        <div className="flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-lg border-4 border-green-500">
-          <FaTwitter size={50} className="text-blue-400 mb-4" />
-          <button
-            onClick={() => handleConnect('twitter')}
-            className="bg-blue-400 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-500"
+      {/* Centering the last two cards with borders and hover effect */}
+      <div className="flex justify-center w-full mb-10">
+        <div className="flex space-x-8">
+          {/* Google Card */}
+          <div
+            className={`flex flex-col items-center justify-center bg-red-500 text-white p-6 rounded-lg shadow-lg border-4 border-red-600 transform transition-transform duration-300 hover:scale-105`}
           >
-            Connect Twitter
-          </button>
-        </div>
+            <div className={`mb-4 p-2 rounded-full bg-red-500 shadow-md`}>
+              <FaGoogle size={60} />
+            </div>
+            <button
+              onClick={() => handleConnect('google')}
+              className={`text-white font-bold py-2 px-6 rounded-lg shadow-lg transition duration-300 hover:bg-opacity-80`}
+            >
+              Connect Google
+            </button>
+          </div>
 
-        <div className="flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-lg border-4 border-green-500">
-          <FaInstagram size={50} className="text-pink-500 mb-4" />
-          <button
-            onClick={() => handleConnect('instagram')}
-            className="bg-pink-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-pink-600"
+          {/* Snapchat Card */}
+          <div
+            className={`flex flex-col items-center justify-center bg-yellow-500 text-white p-6 rounded-lg shadow-lg border-4 border-yellow-600 transform transition-transform duration-300 hover:scale-105`}
           >
-            Connect Instagram
-          </button>
-        </div>
-
-        <div className="flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-lg border-4 border-green-500">
-          <FaLinkedin size={50} className="text-blue-700 mb-4" />
-          <button
-            onClick={() => handleConnect('linkedin')}
-            className="bg-blue-700 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-800"
-          >
-            Connect LinkedIn
-          </button>
-        </div>
-
-        <div className="flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-lg border-4 border-green-500">
-          <FaGoogle size={50} className="text-red-500 mb-4" />
-          <button
-            onClick={() => handleConnect('google')}
-            className="bg-red-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-600"
-          >
-            Connect Google
-          </button>
+            <div className={`mb-4 p-2 rounded-full bg-yellow-500 shadow-md`}>
+              <FaSnapchat size={60} />
+            </div>
+            <button
+              onClick={() => handleConnect('snapchat')}
+              className={`text-white font-bold py-2 px-6 rounded-lg shadow-lg transition duration-300 hover:bg-opacity-80`}
+            >
+              Connect Snapchat
+            </button>
+          </div>
         </div>
       </div>
 
       <motion.p
-        className="text-lg text-gray-200 mt-10 font-bold text-center"
+        className="text-lg text-gray-900 mt-10 font-bold text-center"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
