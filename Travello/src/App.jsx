@@ -19,7 +19,7 @@ import { Toaster } from 'react-hot-toast';
 import Profile from "./components/Profile";
 import Localculture from "./components/localcultureimmersion";
 import Quests from "./components/Quests";
-
+import Badges from "./components/Badges";
 
 
 
@@ -46,6 +46,7 @@ const App = () => {
             <Route path="/profile" element={<Profile />}/>
             <Route path="/localculture" element={<Localculture />}/>
             <Route path="/quests" element={<Quests />} />
+            <Route path="/my-badges" element={<Badges />} />
             </Routes>
 
         </main>
