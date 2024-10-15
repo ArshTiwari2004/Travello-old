@@ -20,6 +20,7 @@ import Profile from "./components/Profile";
 import Localculture from "./components/localcultureimmersion";
 import Quests from "./components/Quests";
 import Badges from "./components/Badges";
+import HiddenAttractions from "./components/Hiddenattractions";
 
 
 
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/localculture" element={<Localculture />}/>
             <Route path="/quests" element={<Quests />} />
             <Route path="/my-badges" element={<Badges />} />
+            <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
             </Routes>
 
         </main>
