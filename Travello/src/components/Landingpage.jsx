@@ -38,7 +38,6 @@ const LandingPage = () => {
                 <Link
                   to="/leaderboard
                   className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
-
                 >
                   <FaTrophy className="inline mr-1" /> Popular Monuments
                 </Link>
