@@ -21,6 +21,8 @@ import Localculture from "./components/localcultureimmersion";
 import Quests from "./components/Quests";
 import Badges from "./components/Badges";
 import HiddenAttractions from "./components/Hiddenattractions";
+import OfflineMode from "./components/Offlinemode";
+import AchievementSection from "./components/Acheivemnt";
 
 
 
@@ -50,6 +52,7 @@ const App = () => {
             <Route path="/quests" element={<Quests />} />
             <Route path="/my-badges" element={<Badges />} />
             <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
+            <Route path="/offline-mode" element={<OfflineMode />} />
 
             </Routes>
 
@@ -70,6 +73,7 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <AchievementSection />
 
     </div>
   );
