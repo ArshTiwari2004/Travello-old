@@ -28,52 +28,52 @@ const Dashboard = () => {
             description: 'Explore secret spots with navigation and location-based tips.',
             image: 'hiddenattraction.jpeg',
             link: '/hidden-attractions',
-            icon: <FaMapMarkedAlt size={45} className="text-blue-500" />,
+            icon: <FaMapMarkedAlt size={45} className="text-[#49c6e5]" />,
         },
         {
             title: 'Challenges & Quests',
             description: 'Complete exciting photo challenges and earn rewards!',
             image: 'challenges.jpeg',
             link: '/challenges',
-            icon: <FaCamera size={45} className="text-red-500" />,
+            icon: <FaCamera size={45} className="text-[#ff6347]" />,
         },
         {
             title: 'Achievements',
             description: 'Earn badges, levels, and celebrate your accomplishments.',
             image: 'a.jpg',
             link: '/achievements',
-            icon: <FaTrophy size={100} className="text-yellow-500" />,
+            icon: <FaTrophy size={100} className="text-[#ffd700]" />,
         },
         {
             title: 'Social Integration',
             description: 'Share your adventures on Facebook, Twitter, and Instagram!',
             image: 's.jpeg',
             link: '/social-integration',
-            icon: <FaShareAlt size={45} className="text-green-500" />,
+            icon: <FaShareAlt size={45} className="text-[#00bd9d]" />,
         },
         {
             title: 'Dynamic Leaderboards',
             description: 'Compete with friends and see how you rank!',
             image: 'l.png',
             link: '/leaderboards',
-            icon: <FaUsers size={45} className="text-purple-500" />,
+            icon: <FaUsers size={45} className="text-[#8bd7d2]" />,
         },
         {
             title: 'Offline Mode',
             description: 'Download maps for offline use and explore without internet!',
             image: 'om.png',
             link: '/offline-mode',
-            icon: <FaDownload size={40} className="text-red-500" />,
+            icon: <FaDownload size={40} className="text-[#ff6347]" />,
         },
         {
             title: 'Culture Immersion',
             description: 'Immerse in local culture and enjoy unique experiences.',
             image: 'ci.jpeg',
             link: '/culture-immersion',
-            icon: <FaLeaf size={30} className="text-orange-500" />,
+            icon: <FaLeaf size={30} className="text-[#ffa500]" />,
         },
         {
-            title: 'AI Itinerary '  ,
+            title: 'AI Itinerary',
             description: 'Get personalized travel suggestions powered by AI.',
             image: 'ai.png',
             link: '/ai-itinerary',
@@ -84,49 +84,50 @@ const Dashboard = () => {
             description: 'Discover eco-friendly travel options and reduce your footprint.',
             image: 'eco2.jpg',
             link: '/eco-friendly',
-            icon: <FaSeedling size={45} className="text-green-700" />,
+            icon: <FaSeedling size={45} className="text-[#00bd9d]" />,
         },
         {
             title: 'Carbon Footprints',
             description: 'Track and reduce your carbon footprint with eco-friendly tips.',
             image: 'cf.png',
             link: '/carbon-footprints',
-            icon: <FaRecycle size={30} className="text-blue-700" />,
+            icon: <FaRecycle size={30} className="text-[#49c6e5]" />,
         },
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-white to-gray-200 flex">
+        <div className="min-h-screen bg-gradient-to-b from-[#fffbfa] to-gray-200 flex">
             {/* Left Navbar */}
-            <div className="w-1/5 min-h-screen bg-gradient-to-b from-blue-900 to-cyan-900 p-6 flex flex-col justify-between">
+            <div className="w-1/5 min-h-screen bg-gradient-to-b from-[#49c6e5] to-[#54defd] p-6 flex flex-col justify-between">
                 <div>
-                    <Link to="/" className="text-white flex items-center mb-6 text-2xl font-bold hover:text-gray-200">
-                        <FaHome className="mr-3" /> Dashboard
-                    </Link>
+                  <div className="flex items-center mb-6">
+                         
+                        <Link to="/" className="text-white flex items-center text-2xl font-bold hover:text-gray-200">
+                               <FaHome className="mr-5" /> travello
+                         </Link>
+                    </div>
                     <div className="space-y-4">
-                        <Link to="/hidden-attraction-maps" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/hidden-attraction-maps" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaMapMarkedAlt className="mr-3" /> Hidden Attractions
                         </Link>
-                        <Link to="/socials" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/socials" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaShareAlt className="mr-3" /> Link your Socials
                         </Link>
-                        <Link to="/leaderboard" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/leaderboard" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaUsers className="mr-3" /> Leaderboard
                         </Link>
-                        <Link to="/quests" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/quests" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaCamera className="mr-3" /> My Quests
                         </Link>
-                        <Link to="/my-itinerary" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/my-itinerary" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaLeaf className="mr-3" /> My Itinerary
                         </Link>
-                        <Link to="/my-badges" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/my-badges" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaTrophy className="mr-3" /> My Badges
                         </Link>
-                        <Link to="/challenges" className="text-white text-lg font-semibold hover:bg-blue-800 p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <Link to="/challenges" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaTrophy className="mr-3" /> My Challenges
                         </Link>
-                        
-                        
                     </div>
                 </div>
                 <Link to="/profile" className="text-white flex items-center text-xl font-bold hover:text-gray-300">
@@ -138,7 +139,7 @@ const Dashboard = () => {
             <div className="w-4/5 p-8">
                 <ToastContainer />
                 <motion.h1
-                    className="text-5xl font-bold text-blue-800 mb-8 text-center"
+                    className="text-5xl font-bold text-[#49c6e5] mb-8 text-center"
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -171,23 +172,18 @@ const Dashboard = () => {
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ duration: 0.5, delay: 0.2 }}
                                 >
-                                    <h2 className="text-3xl font-bold text-green-600 mb-4 flex items-center justify-center md:justify-start">
+                                    <h2 className="text-3xl font-bold text-[#00bd9d] mb-4 flex items-center justify-center md:justify-start">
                                         {feature.icon} <span className="ml-3">{feature.title}</span>
                                     </h2>
-                                    <p className="text-lime-600 mb-4">{feature.description}</p>
-                                    <Link
-                                        to={feature.link}
-                                        className="text-indigo-500 hover:text-indigo-700 underline font-semibold"
-                                    >
-                                        Explore this feature &gt;
+                                    <p className="text-gray-600 text-lg mb-4">{feature.description}</p>
+                                    <Link to={feature.link} className="inline-block px-6 py-2 rounded-md bg-[#49c6e5] text-white text-lg font-semibold transition-colors hover:bg-[#00bd9d]">
+                                        Explore
                                     </Link>
                                 </motion.div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-
-                
             </div>
         </div>
     );

@@ -46,9 +46,11 @@ const App = () => {
             <Route path="/challenges" element={<CompleteChallengesPage />} />
             <Route path="/profile" element={<Profile />}/>
             <Route path="/localculture" element={<Localculture />}/>
+
             <Route path="/quests" element={<Quests />} />
             <Route path="/my-badges" element={<Badges />} />
             <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
+
             </Routes>
 
         </main>
