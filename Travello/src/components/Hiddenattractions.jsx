@@ -9,7 +9,12 @@ import Confetti from 'react-confetti';
 import { Tooltip } from 'react-tooltip';
 import { MapPin, Compass, Star, Camera, Info, X, ChevronDown, ChevronUp, Share2 } from 'lucide-react';
 
-const MAPBOX_TOKEN = 'YOUR_MAPBOX_TOKEN_HERE'; // Replace with your actual Mapbox token
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
+
+console.log(import.meta.env);
+
+
+//console.log(MAPBOX_TOKEN)
 
 const HiddenAttractions = () => {
   const [viewState, setViewState] = useState({

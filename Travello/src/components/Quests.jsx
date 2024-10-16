@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import Confetti from 'react-confetti';
 import { Map, Marker } from 'react-map-gl'; 
-import { MapPin, Camera, Trophy, Star, Share2 } from 'lucide-react';
+import { MapPin, Camera, Trophy } from 'lucide-react';
+import RewardsModal from './RewardsModal';
 
 const MAPBOX_TOKEN = 'YOUR_MAPBOX_TOKEN_HERE'; // Replace with your actual Mapbox token
 
@@ -99,8 +100,10 @@ const Quests = () => {
 
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedQuest, setSelectedQuest] = useState(null);
-  const [groupName, setGroupName] = useState('');
-  const [groupMembers, setGroupMembers] = useState([]);
+  const [showRewardsModal, setShowRewardsModal] = useState(false);
+  const [reward, setReward] = useState({ title: '', description: '', points: 0 });
+  const [experience, setExperience] = useState('');
+  const [image, setImage] = useState(null);
 
   const questAnimation = useSpring({
     opacity: selectedQuest ? 1 : 0,
@@ -108,9 +111,23 @@ const Quests = () => {
   });
 
   const completeQuest = (id) => {
+    const quest = quests.find(q => q.id === id);
+    const newReward = {
+      title: `Reward for ${quest.title}`,
+      description: quest.details,
+      points: quest.points,
+    };
+
+    setReward(newReward);
+    setShowRewardsModal(true);
+    setSelectedQuest(quest);
+  };
+
+  const claimReward = () => {
     setQuests(quests.map(quest =>
-      quest.id === id ? { ...quest, completed: true } : quest
+      quest.id === selectedQuest.id ? { ...quest, completed: true } : quest
     ));
+    setShowRewardsModal(false);
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 3000);
   };
@@ -130,24 +147,10 @@ const Quests = () => {
         };
         return [...prevQuests, newQuest];
       });
-    }, 30000); // New quest every 30 seconds
+    }, 30000);
 
     return () => clearInterval(interval);
   }, []);
-
-  const shareQuest = (quest) => {
-    const message = `I've completed the quest: "${quest.title}" and earned ${quest.points} points! #QuestAdventure`;
-    navigator.share({ title: quest.title, text: message })
-      .then(() => console.log('Shared successfully'))
-      .catch(err => console.error('Error sharing:', err));
-  };
-
-  const createGroup = () => {
-    // Logic to create a group and share with friends can be implemented here.
-    alert(`Group "${groupName}" created with members: ${groupMembers.join(', ')}`);
-    setGroupName('');
-    setGroupMembers([]);
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 p-8">
@@ -164,7 +167,7 @@ const Quests = () => {
                   ? 'bg-green-100 border-green-300'
                   : 'bg-indigo-50 border-indigo-200 hover:bg-indigo-100'
               } border-2`}
-              onClick={() => setSelectedQuest(quest)}
+              onClick={() => completeQuest(quest.id)}
             >
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-medium text-indigo-800">{quest.title}</h3>
@@ -203,72 +206,32 @@ const Quests = () => {
                 </span>
               </div>
               <button
-                className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
                 onClick={() => completeQuest(selectedQuest.id)}
+                className={`w-full py-2 rounded-lg text-white font-semibold transition duration-300 ${
+                  selectedQuest.completed ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
+                }`}
+                disabled={selectedQuest.completed}
               >
-                Complete Quest
-              </button>
-              <button
-                className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition ml-2"
-                onClick={() => shareQuest(selectedQuest)}
-              >
-                <Share2 className="mr-1" size={18} /> Share Quest
+                {selectedQuest.completed ? 'Completed' : 'Claim Reward'}
               </button>
             </animated.div>
           ) : (
-            <p className="text-gray-600">Select a quest to see the details.</p>
+            <p className="text-gray-600">Select a quest to see details.</p>
           )}
         </div>
       </div>
-      
-      <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
-        <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Create a Group Quest</h2>
-        <div className="flex flex-col mb-4">
-          <input
-            type="text"
-            placeholder="Group Name"
-            value={groupName}
-            onChange={(e) => setGroupName(e.target.value)}
-            className="border border-gray-300 rounded p-2 mb-2"
-          />
-          <input
-            type="text"
-            placeholder="Add Members (comma separated)"
-            value={groupMembers.join(', ')}
-            onChange={(e) => setGroupMembers(e.target.value.split(','))}
-            className="border border-gray-300 rounded p-2"
-          />
-        </div>
-        <button
-          className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
-          onClick={createGroup}
-        >
-          Create Group
-        </button>
-      </div>
 
       {showConfetti && <Confetti />}
-      <div className="mt-8">
-        <h2 className="text-2xl font-semibold text-indigo-700">Map View</h2>
-        <Map
-          initialViewState={{
-            longitude: -122.4194,
-            latitude: 37.7749,
-            zoom: 10,
-          }}
-          style={{ width: '100%', height: '400px' }}
-          mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapboxAccessToken={MAPBOX_TOKEN}
-        >
-          {quests.filter(quest => quest.location).map(quest => (
-            <Marker key={quest.id} longitude={quest.location[0]} latitude={quest.location[1]}>
-              <div className="bg-indigo-600 text-white p-1 rounded">
-                {quest.title}
-              </div>
-            </Marker>
-          ))}
-        </Map>
-      </div>
+
+      <RewardsModal
+        show={showRewardsModal}
+        onClose={claimReward}
+        reward={reward}
+        experience={experience}
+        setExperience={setExperience}
+        image={image}
+        setImage={setImage}
+      />
     </div>
   );
 };
