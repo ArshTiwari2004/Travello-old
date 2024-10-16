@@ -5,12 +5,14 @@ import Carousel from './Carousel';
 
 const About = () => {
   return (
-    <div className="py-16 text-center bg-white mt-8">
+    <div className="py-16 text-center bg-off-white mt-8"> {/* Off-white background */}
       <div className="container mx-auto">
-        <h2 className="text-4xl  font-bold mb-6 text-emerald-800" id="about-section">About Our Gamified Tourism Platform</h2>
+        <h2 className="text-4xl font-bold mb-6 text-teal-green" id="about-section"> {/* Teal Green heading */}
+          About Our Gamified Tourism Platform
+        </h2>
         <TypingEffect
           text={['Explore Hidden Gems Like Never Before', 'Transform Your Travels into an Adventure']}
-          className="text-2xl font-semibold text-green-700"
+          className="text-2xl font-semibold text-light-blue"  // Light Blue text
         />
         <p className="mt-6 text-lg text-gray-700 max-w-3xl mx-auto">
           Our platform is designed to revolutionize the travel experience by guiding you to hidden attractions and cultural experiences through interactive challenges. We integrate gamification with AI-powered personalization to create dynamic itineraries that adapt to your interests and real-time conditions, making every journey a memorable adventure.

@@ -56,7 +56,12 @@ module.exports = {
 			4: 'hsl(var(--chart-4))',
 			5: 'hsl(var(--chart-5))',
 		  },
-		  
+		  // Adding your custom colors
+		  'sky-blue': '#49c6e5',
+		  'light-blue': '#54defd',
+		  'off-white': '#fffbfa',
+		  'teal-green': '#00bd9d',
+		  'mint': '#8bd7d2',
 		},
 	  },
 	},
