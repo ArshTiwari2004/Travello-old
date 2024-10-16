@@ -25,6 +25,9 @@ import ReviewSection from "./components/Review";
 
 import Badges from "./components/Badges";
 import HiddenAttractions from "./components/Hiddenattractions";
+import OfflineMode from "./components/Offlinemode";
+import AchievementSection from "./components/Acheivemnt";
+
 import QuestsAndChallenges from "./components/QuestAndChalleneges";
 import Quest from "./components/Quest";
 import Challenge from "./components/Challenge";
@@ -68,7 +71,11 @@ const App = () => {
             {/* <Route path="/qnc" element={<QuestsAndChallenges/>} /> */}
             <Route path="/my-badges" element={<Badges />} />
             <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
+            <Route path="/offline-mode" element={<OfflineMode />} />
+
+
             <Route path="*" element={<NotFoundPage />} />
+
             </Routes>
 
         </main>
@@ -88,6 +95,7 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <AchievementSection />
       <ReviewSection />
       <BlogSection />
       <Newsletter />
