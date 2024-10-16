@@ -48,13 +48,13 @@ const LandingPage = () => {
                   to="/discover"
                   className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
                 >
-                  <FaMapMarkedAlt className="inline mr-1" /> Discover
+                  <FaMapMarkedAlt className="inline mr-1" /> About Us
                 </Link>
                 <Link
                   to="/leaderboard"
                   className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
                 >
-                  <FaTrophy className="inline mr-1" /> Leaderboard
+                  <FaTrophy className="inline mr-1" /> Popular Monuments
                 </Link>
                 <Link
                   to="/profile"
