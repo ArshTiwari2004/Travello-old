@@ -1,4 +1,3 @@
-// ReviewSection.jsx
 import React from 'react';
 
 // Sample reviews data

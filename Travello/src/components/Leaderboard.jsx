@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 
 const globalUsersData = [
-  { id: 1, name: 'John Doe', location: 'Maharashtra', score: 9500, badges: ['CityExplorer', 'FoodExplorer', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=1' },
-  { id: 2, name: 'Jane Smith', location: 'Tamil Nadu', score: 9200, badges: ['CulturalAmbassador', 'HeritageHunter', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=2' },
+  { id: 1, name: 'Rajat Mehra', location: 'Maharashtra', score: 9500, badges: ['CityExplorer', 'FoodExplorer', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=1' },
+  { id: 2, name: 'Shantipriya', location: 'Tamil Nadu', score: 9200, badges: ['CulturalAmbassador', 'HeritageHunter', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=2' },
   { id: 3, name: 'Mike Johnson', location: 'Uttar Pradesh', score: 8900, badges: ['PhotoPro', 'ArtAdmirer', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=3' },
   { id: 4, name: 'Emily Brown', location: 'Delhi', score: 8700, badges: ['CityExplorer', 'FoodExplorer'], avatar: 'https://i.pravatar.cc/150?img=4' },
   { id: 5, name: 'David Lee', location: 'Maharashtra', score: 8500, badges: ['HeritageHunter', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=5' },
@@ -97,8 +97,8 @@ const Leaderboard = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">Tourism Adventure Leaderboard</h1>
+    <div className="container mx-auto px-4 py-8 bg-gradient-to-b from-mint to-light-green ">
+      <h1 className="text-4xl font-bold text-center mb-8 text-teal-950">Tourism Adventure Leaderboard</h1>
       <div className="mb-4">
         <label htmlFor="stateSelect" className="block text-sm font-medium text-gray-700">Select Region:</label>
         <select
