@@ -27,6 +27,8 @@ import HiddenAttractions from "./components/Hiddenattractions";
 import QuestsAndChallenges from "./components/QuestAndChalleneges";
 import Quest from "./components/Quest";
 import Challenge from "./components/Challenge";
+import Leaderboard from "./components/Leaderboard";
+
 
 
 
@@ -59,8 +61,8 @@ const App = () => {
             <Route path="/localculture" element={<Localculture />}/>
 
             <Route path="/quests" element={<Quests />} />
-            <Route path="/Questsstwo" element = {<Quest/>}/>
-            <Route path="/Challenge" element = {<Challenge/>}/>
+            <Route path="/Questsstwo" element = {<Quest />}/>
+            <Route path="/Challenge" element = {<Challenge />}/>
             {/* <Route path="/qnc" element={<QuestsAndChallenges/>} /> */}
             <Route path="/my-badges" element={<Badges />} />
             <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
