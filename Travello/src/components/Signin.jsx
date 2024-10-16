@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { HiMail, HiLockClosed } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
-
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -29,7 +28,10 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
+        withCredentials: true,
       });
+
+      console.log(response)
 
       const { token, user } = response.data;
 
@@ -62,10 +64,6 @@ const Login = () => {
       console.error('Error with Google Sign-In:', error.message);
     }
   };
-
-  const handleSubmitt = () => {
-    navigate('/dashboard'); // Redirect to /dashboard
-  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-green-200">
@@ -105,7 +103,6 @@ const Login = () => {
             Forgot Password?
           </button>
           <button
-          onclick={handleSubmitt}
             type="submit"
             className="w-full p-3 bg-emerald-800 text-white rounded hover:bg-emerald-700 transition duration-200"
           >
