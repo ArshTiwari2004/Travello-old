@@ -29,11 +29,17 @@ const LandingPage = () => {
                 <Link to="/" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat"> {/* Light Blue hover */}
                   <FaHome className="inline mr-1" /> Home
                 </Link>
-                <Link to="/discover" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat">
-                  <FaMapMarkedAlt className="inline mr-1" /> Discover
+                <Link
+                  to="/discover"
+                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
+                >
+                  <FaMapMarkedAlt className="inline mr-1" /> About Us
                 </Link>
-                <Link to="/leaderboard" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat">
-                  <FaTrophy className="inline mr-1" /> Leaderboard
+                <Link
+                  to="/leaderboard"
+                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
+                >
+                  <FaTrophy className="inline mr-1" /> Popular Monuments
                 </Link>
                 <Link to="/profile" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat">
                   <FaUserAlt className="inline mr-1" /> Profile
