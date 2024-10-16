@@ -1,23 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import Confetti from 'react-confetti';
-import { Map, Marker } from 'react-map-gl'; 
 import { MapPin, Camera, Trophy } from 'lucide-react';
 import RewardsModal from './RewardsModal';
-
-const MAPBOX_TOKEN = 'YOUR_MAPBOX_TOKEN_HERE'; // Replace with your actual Mapbox token
-
-const QuestDetails = ({ quest }) => {
-  return (
-    <div>
-      <h3 className="text-xl font-medium text-indigo-800 mb-2">{quest.title} - Details</h3>
-      <p className="text-gray-600 mb-4">{quest.description}</p>
-      <p className="text-gray-600 mb-4">
-        To complete this quest, you need to: {quest.details}
-      </p>
-    </div>
-  );
-};
+import { toast } from 'react-hot-toast'; 
 
 const Quests = () => {
   const [quests, setQuests] = useState([
@@ -38,7 +24,7 @@ const Quests = () => {
       type: 'location',
       points: 75,
       completed: false,
-      location: [-122.4194, 37.7749], // Example coordinates (San Francisco)
+      location: [-122.4194, 37.7749],
     },
     {
       id: 3,
@@ -94,13 +80,13 @@ const Quests = () => {
       type: 'location',
       points: 90,
       completed: false,
-      location: [-0.127758, 51.507351], // Example coordinates (London)
+      location: [-0.127758, 51.507351], 
     },
   ]);
 
   const [showConfetti, setShowConfetti] = useState(false);
-  const [selectedQuest, setSelectedQuest] = useState(null);
-  const [showRewardsModal, setShowRewardsModal] = useState(false);
+  const [selectedQuest, setSelectedQuest] = useState(null); // Stores the selected quest for details view
+  const [showRewardsModal, setShowRewardsModal] = useState(false); // Controls the modal display
   const [reward, setReward] = useState({ title: '', description: '', points: 0 });
   const [experience, setExperience] = useState('');
   const [image, setImage] = useState(null);
@@ -110,20 +96,34 @@ const Quests = () => {
     transform: selectedQuest ? 'translateY(0)' : 'translateY(50px)',
   });
 
-  const completeQuest = (id) => {
+  // Function to select a quest and display details without opening the reward modal
+  const selectQuest = (id) => {
     const quest = quests.find(q => q.id === id);
-    const newReward = {
-      title: `Reward for ${quest.title}`,
-      description: quest.details,
-      points: quest.points,
-    };
-
-    setReward(newReward);
-    setShowRewardsModal(true);
     setSelectedQuest(quest);
   };
 
+  const onClose = ()=>{
+    setShowRewardsModal(false);
+    setShowConfetti(false)
+  }
+
+  // Function to handle the reward claim and open the modal
+  const handleClaimReward = () => {
+    const newReward = {
+      title: `Reward for ${selectedQuest.title}`,
+      description: selectedQuest.details,
+      points: selectedQuest.points,
+    };
+
+    setReward(newReward);
+    setShowRewardsModal(true); // Open the modal when claiming the reward
+  };
+
   const claimReward = () => {
+    if (!experience || !image) {
+      toast.error('Please fill in all fields before claiming your reward!');
+      return;
+    }
     setQuests(quests.map(quest =>
       quest.id === selectedQuest.id ? { ...quest, completed: true } : quest
     ));
@@ -132,31 +132,12 @@ const Quests = () => {
     setTimeout(() => setShowConfetti(false), 3000);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setQuests(prevQuests => {
-        const newQuest = {
-          id: prevQuests.length + 1,
-          title: `New Adventure ${prevQuests.length + 1}`,
-          description: "A surprise quest has appeared!",
-          details: "Get ready for a fun challenge!",
-          type: Math.random() > 0.5 ? 'photo' : 'location',
-          points: Math.floor(Math.random() * 100) + 50,
-          completed: false,
-          location: [-122.4194 + (Math.random() - 0.5) * 0.1, 37.7749 + (Math.random() - 0.5) * 0.1],
-        };
-        return [...prevQuests, newQuest];
-      });
-    }, 30000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 p-8">
       <h1 className="text-4xl font-bold text-center mb-8 text-indigo-800">Adventure Quests</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
         <div className="bg-white rounded-lg shadow-lg p-6 overflow-y-auto max-h-[70vh]">
           <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Available Quests</h2>
           {quests.map(quest => (
@@ -167,7 +148,7 @@ const Quests = () => {
                   ? 'bg-green-100 border-green-300'
                   : 'bg-indigo-50 border-indigo-200 hover:bg-indigo-100'
               } border-2`}
-              onClick={() => completeQuest(quest.id)}
+              onClick={() => selectQuest(quest.id)} // Just select the quest
             >
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-medium text-indigo-800">{quest.title}</h3>
@@ -188,11 +169,16 @@ const Quests = () => {
           ))}
         </div>
         
+        {/* Quest Details */}
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Quest Details</h2>
           {selectedQuest ? (
             <animated.div style={questAnimation}>
-              <QuestDetails quest={selectedQuest} />
+              <h3 className="text-xl font-medium text-indigo-800 mb-2">{selectedQuest.title} - Details</h3>
+              <p className="text-gray-600 mb-4">{selectedQuest.description}</p>
+              <p className="text-gray-600 mb-4">
+                To complete this quest, you need to: {selectedQuest.details}
+              </p>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-indigo-600 font-medium">
                   {selectedQuest.points} points
@@ -206,7 +192,7 @@ const Quests = () => {
                 </span>
               </div>
               <button
-                onClick={() => completeQuest(selectedQuest.id)}
+                onClick={handleClaimReward}
                 className={`w-full py-2 rounded-lg text-white font-semibold transition duration-300 ${
                   selectedQuest.completed ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
                 }`}
@@ -225,7 +211,8 @@ const Quests = () => {
 
       <RewardsModal
         show={showRewardsModal}
-        onClose={claimReward}
+        onClose={onClose}
+        claimReward = {claimReward}
         reward={reward}
         experience={experience}
         setExperience={setExperience}

@@ -1,13 +1,7 @@
 import jwt from 'jsonwebtoken';
-import User from "../models/user.model.js";
 
-const auth = async(req, res, next) => {
-//   let token = req.headers['authorization'];
-let { token } = req.cookies;
-
-  if (!token) {
-    token = req.cookies.token; 
-  }
+const auth = async (req, res, next) => {
+  let { token } = req.cookies;
 
   if (!token) {
     return res.status(401).json({ message: 'No token provided' });
@@ -21,8 +15,15 @@ let { token } = req.cookies;
     if (err) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
-    req.userId = decoded._id; 
-    
+
+    console.log("Decoded token:", decoded); // Log the decoded token
+
+    // Ensure the token contains the user _id
+    req.userId = decoded._id;
+    if (!req.userId) {
+      return res.status(401).json({ message: 'Invalid token' });
+    }
+
     next();
   });
 };
