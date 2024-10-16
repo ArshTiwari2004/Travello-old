@@ -32,6 +32,7 @@ import QuestsAndChallenges from "./components/QuestAndChalleneges";
 import Quest from "./components/Quest";
 import Challenge from "./components/Challenge";
 import Leaderboard from "./components/Leaderboard";
+import NotFoundPage from "./components/NotFoundPage";
 
 
 
@@ -71,6 +72,9 @@ const App = () => {
             <Route path="/my-badges" element={<Badges />} />
             <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
             <Route path="/offline-mode" element={<OfflineMode />} />
+
+
+            <Route path="*" element={<NotFoundPage />} />
 
             </Routes>
 

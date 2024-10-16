@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
   phone: { type: String },
   gender: { type: String },
   dateOfBirth: { type: Date },
-  socialMedia: { type: mongoose.Schema.Types.ObjectId, ref: 'SocialMedia' },
   createdAt: {
     type: Date,
     default: Date.now,
