@@ -61,10 +61,10 @@ const OfflineMode = () => {
     const db = await openDB('MapTilesDB', 1);
     const tiles = await db.getAll('tiles');
 
-    // Use the cached tiles to render the map
+
     if (tiles.length > 0) {
       console.log('Offline map loaded with cached tiles:', tiles);
-      // Logic to render map using offline tiles
+      
     } else {
       console.warn('No offline map tiles found. Please download tiles when online.');
     }
