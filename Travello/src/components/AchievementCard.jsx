@@ -44,10 +44,10 @@ const AchievementCard = ({ icon, value, label }) => {
   return (
     <div
       ref={cardRef}
-      className="flex flex-col items-center p-4 bg-white rounded shadow-lg"
+      className="flex flex-col items-center p-4 bg-white rounded-md shadow-lg"
     >
-      <img src={icon} alt={label} className="w-16 h-16 mb-4" />
-      <h2 className="text-4xl font-bold text-yellow-500">{count}</h2>
+      <img src={icon} alt={label} className="w-30 h-16 mb-5" />
+      <h2 className="text-4xl font-bold text-teal-500">{count}</h2>
       <p className="text-gray-600">{label}</p>
     </div>
   );
