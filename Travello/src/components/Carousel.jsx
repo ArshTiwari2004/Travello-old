@@ -6,40 +6,40 @@ import 'slick-carousel/slick/slick-theme.css';
 const ChooseUs = () => {
   const features = [
     {
-      title: 'Discover Hidden Attractions',
+      title: 'Taj Mahal, Agra',
       description:
-        'Interactive maps that guide you to hidden gems and local experiences, offering real-time tips based on your location.',
-      image: '/hid1.jpg',
+        'The Taj Mahal changes color throughout the day, appearing pinkish in the morning, bluish in the evening, and golden under the moonlight',
+      image: 'tajmahal.jpeg',
     },
     {
-      title: 'Challenges & Quests',
+      title: 'Red Fort, New Delhi',
       description:
-        'Engage in gamified experiences with photo challenges, cultural quests, and earn rewards for completing them.',
-      image: '/hid2.jpg',
+        'The Red Fort in Delhi was originally white and made of limestone, but when the stone started chipping off, it was painted red by the British',
+      image: 'redfort.jpg',
     },
     {
-      title: 'Gamification Rewards',
+      title: 'Sun Temple, Konark',
       description:
-        'Earn points, badges, and achievements as you explore. Unlock levels that give you access to exclusive content and hidden locations.',
-      image: '/hid3.jpg',
+        'The Sun Temple in Konark is designed as a giant chariot with 12 pairs of intricately carved stone wheels, each representing a month of the year and capable of telling time!',
+      image: 'suntemple.jpg',
     },
     {
-      title: 'Social Media Integration',
+      title: 'Mysore Palace, Karnataka',
       description:
-        'Seamlessly share your travel experiences, achievements, and photos on Instagram, Facebook, and Twitter.',
-      image: '/hid4.jpg',
+        'Mysore Palace is illuminated by nearly 100,000 lights during special occasions, creating a breathtaking spectacle!',
+      image: 'mysorepalace.jpg',
     },
     {
-      title: 'Dynamic Leaderboards',
+      title: 'Hawa Mahal, Jaipur',
       description:
-        'Compete with fellow travelers on global and location-based leaderboards to see who’s leading the exploration game.',
-      image: '/hid5.jpg',
+        'Hawa Mahal has 953 small windows, or "jharokhas," designed to allow royal ladies to observe street festivities without being seen',
+      image: 'hawamahal.jpg',
     },
     {
-      title: 'Offline Mode',
+      title: 'Shaniwar wada,Pune',
       description:
-        'Access downloadable maps and challenges even in areas with poor connectivity, ensuring uninterrupted adventure.',
-      image: '/hid6.jpg',
+        'Shaniwar Wada is famous for its majestic architecture and eerie legends of being haunted by the ghost of a young prince',
+      image: 'shaniwarwada.jpg',
     },
   ];
 
@@ -53,16 +53,17 @@ const ChooseUs = () => {
 
   return (
     <div className="w-full relative">
-      
-      <div className="relative bg-green-200 py-20 px-4" id="featuresSection">
+      <div className="relative bg-teal-500 py-20 px-4" id="featuresSection"> 
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl flex justify-center items-center font-bold mb-6 text-emerald-800">Why Choose Us?</h2>
+          <h2 className="text-4xl flex justify-center items-center font-bold mb-6 text-white"> 
+          Must-See Monuments
+          </h2>
           <Slider {...settings}>
             {features.map((feature, index) => (
-              <div key={index} className="p-4 bg-white bg-opacity-90 rounded shadow-md text-center">
-                <img src={feature.image} alt={feature.title} className="h-60 mx-auto mb-4 object-cover" />
-                <h3 className="text-2xl font-bold mb-2">{feature.title}</h3>
-                <p>{feature.description}</p>
+              <div key={index} className="p-6 bg-white bg-opacity-90 rounded-lg shadow-md text-center"> 
+                <img src={feature.image} alt={feature.title} className="h-60 mx-auto mb-4 object-cover rounded" /> 
+                <h3 className="text-2xl font-bold mb-2 text-teal-500">{feature.title}</h3> 
+                <p className="text-gray-800">{feature.description}</p> 
               </div>
             ))}
           </Slider>
