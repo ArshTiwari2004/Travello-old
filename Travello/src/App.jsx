@@ -19,7 +19,8 @@ import { Toaster } from 'react-hot-toast';
 import Profile from "./components/Profile";
 import Localculture from "./components/localcultureimmersion";
 import Quests from "./components/Quests";
-
+import BlogSection from "./components/Blog";
+import Newsletter from "./components/Newsletter";
 import ReviewSection from "./components/Review";
 
 import Badges from "./components/Badges";
@@ -87,6 +88,8 @@ const Landing = () => {
       <LandingPage />
       <About />
       <ReviewSection />
+      <BlogSection />
+      <Newsletter />
     </div>
   );
 };
