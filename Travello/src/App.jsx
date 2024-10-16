@@ -41,48 +41,63 @@ import NotFoundPage from "./components/NotFoundPage";
 const App = () => {
   return (
     <AuthProvider>
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        <main className="flex-grow">
-          
-          <Routes>
-            {/* Landing page route */}
-            <Route path="/" element={<Landing />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/signin" element={<Login />} />
-            
-     
-            <Route path="/accountcreated" element={<AccountCreated />} />
-            <Route path="/dashboard" element={<Dashboard />} /> 
-            <Route path="/socials" element={<SocialIntegration />} />
 
-            <Route path="/leaderboard" element={<Leaderboard />} />
-            {/* <Route path="/challenges" element={<CompleteChallengesPage />} /> */}
+      <Router>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/signin" element={<Login />} />
+              <Route path="/accountcreated" element={<AccountCreated />} />
+              <Route path="/dashboard" element={<ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>} />
+              <Route path="/socials" element={<SocialIntegration />} />
+              <Route path="/leaderboard" element={
+                <ProtectedRoute>
+                  <Leaderboard />
+                </ProtectedRoute>} />
+              <Route path="/challenges" element={<CompleteChallengesPage />} />
 
-          
-            <Route path="/challenges" element={<CompleteChallengesPage />} />
-
-            <Route path="/profile" element={<Profile />}/>
-            <Route path="/localculture" element={<Localculture />}/>
-
-            <Route path="/quests" element={<Quests />} />
-            <Route path="/Questsstwo" element = {<Quest />}/>
-            <Route path="/Challenge" element = {<Challenge />}/>
-            {/* <Route path="/qnc" element={<QuestsAndChallenges/>} /> */}
-            <Route path="/my-badges" element={<Badges />} />
-            <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
+              <Route path="/profile" element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              } />
+              <Route path="/localculture" element={
+                <ProtectedRoute>
+                  <Localculture />
+                </ProtectedRoute>} />
+              <Route path="/quests" element={
+                <ProtectedRoute>
+                 <Quests />
+                </ProtectedRoute>} />
+              <Route path="/Challenge" element={
+                <ProtectedRoute>
+                  <Challenge />
+                </ProtectedRoute>} />
+              <Route path="/my-badges" element={
+                <ProtectedRoute>
+                  <Badges />
+                </ProtectedRoute>} />
+              <Route path="/hidden-attraction-maps" element={
+                <ProtectedRoute>
+                  <HiddenAttractions />
+                </ProtectedRoute>} />
+              <Route path="*" element={<NotFoundPage />} />
             <Route path="/offline-mode" element={<OfflineMode />} />
 
 
             <Route path="*" element={<NotFoundPage />} />
 
-            </Routes>
 
-        </main>
-        <Footer/>
-      </div>
-    </Router>
-    <Toaster />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+      <Toaster />
     </AuthProvider>
   );
 };
