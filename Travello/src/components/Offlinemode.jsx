@@ -71,13 +71,13 @@ const OfflineMode = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-4">Offline Mode Map</h2>
+    <div className="p-6 bg-gradient-to-b from-mint to-light-green min-h-screen flex flex-col items-center">
+      <h2 className="text-4xl text-teal-800 font-bold mb-4">Offline Mode Map</h2>
       <div className="w-full max-w-3xl mb-4">
         <button
           onClick={downloadMapTiles}
           disabled={isDownloading || isOffline}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-cyan-600 hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           {isDownloading ? 'Downloading...' : isOffline ? 'Map Available Offline' : 'Download Map for Offline Use'}
         </button>

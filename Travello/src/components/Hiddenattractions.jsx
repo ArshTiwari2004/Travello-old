@@ -10,32 +10,32 @@ const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
 const attractionsData = {
   Maharashtra: [
-    { id: 1, name: "Gateway of India", description: "A famous monument in Mumbai.", latitude: 18.9218, longitude: 72.8347, photo: "path_to_photo1.jpg" },
-    { id: 2, name: "Ajanta Caves", description: "Famous rock-cut caves.", latitude: 20.5465, longitude: 75.7006, photo: "path_to_photo2.jpg" },
-    { id: 3, name: "Shirdi", description: "Famous pilgrimage site.", latitude: 19.7664, longitude: 74.3967, photo: "path_to_photo3.jpg" },
-    { id: 4, name: "Kolhapur", description: "Known for its heritage.", latitude: 16.7064, longitude: 74.2434, photo: "path_to_photo4.jpg" },
-    { id: 5, name: "Lonavala", description: "Hill station popular for its scenery.", latitude: 18.7532, longitude: 73.4091, photo: "path_to_photo5.jpg" },
+    { id: 1, name: "Gateway of India", description: "A famous monument in Mumbai.", latitude: 18.9218, longitude: 72.8347, photo: "Gatewayofindia.jpg" },
+    { id: 2, name: "Ajanta Caves", description: "Famous rock-cut caves.", latitude: 20.5465, longitude: 75.7006, photo: "Ajantacaves.jpg" },
+    { id: 3, name: "Shirdi", description: "Famous pilgrimage site.", latitude: 19.7664, longitude: 74.3967, photo: "shirdi.jpg" },
+    { id: 4, name: "Kolhapur", description: "Known for its heritage.", latitude: 16.7064, longitude: 74.2434, photo: "kohlapur.jpg" },
+    { id: 5, name: "Lonavala", description: "Hill station popular for its scenery.", latitude: 18.7532, longitude: 73.4091, photo: "lonavla.jpg" },
   ],
   UttarPradesh: [
-    { id: 6, name: "Taj Mahal", description: "An ivory-white marble mausoleum.", latitude: 27.1751, longitude: 78.0421, photo: "path_to_photo6.jpg" },
-    { id: 7, name: "Varanasi", description: "City on the banks of the Ganges.", latitude: 25.3176, longitude: 82.9739, photo: "path_to_photo7.jpg" },
-    { id: 8, name: "Lucknow", description: "Known for its rich history and architecture.", latitude: 26.8468, longitude: 80.9462, photo: "path_to_photo8.jpg" },
-    { id: 9, name: "Agra Fort", description: "A UNESCO World Heritage Site.", latitude: 27.1750, longitude: 78.0081, photo: "path_to_photo9.jpg" },
-    { id: 10, name: "Fatehpur Sikri", description: "Historical city founded by Akbar.", latitude: 27.1047, longitude: 77.6581, photo: "path_to_photo10.jpg" },
+    { id: 6, name: "Taj Mahal", description: "An ivory-white marble mausoleum.", latitude: 27.1751, longitude: 78.0421, photo: "agra.jpg" },
+    { id: 7, name: "Varanasi", description: "City on the banks of the Ganges.", latitude: 25.3176, longitude: 82.9739, photo: "varanasi.jpg" },
+    { id: 8, name: "Lucknow", description: "Known for its rich history and architecture.", latitude: 26.8468, longitude: 80.9462, photo: "lucknow.jpg" },
+    { id: 9, name: "Agra Fort", description: "A UNESCO World Heritage Site.", latitude: 27.1750, longitude: 78.0081, photo: "agrafort.jpg" },
+    { id: 10, name: "Fatehpur Sikri", description: "Historical city founded by Akbar.", latitude: 27.1047, longitude: 77.6581, photo: "fatehpur.jpg" },
   ],
   Delhi: [
-    { id: 11, name: "Red Fort", description: "A symbol of India's freedom.", latitude: 28.6562, longitude: 77.2410, photo: "path_to_photo11.jpg" },
-    { id: 12, name: "India Gate", description: "A war memorial.", latitude: 28.6129, longitude: 77.2295, photo: "path_to_photo12.jpg" },
-    { id: 13, name: "Qutub Minar", description: "The tallest brick minaret in the world.", latitude: 28.5244, longitude: 77.1855, photo: "path_to_photo13.jpg" },
-    { id: 14, name: "Lotus Temple", description: "A Bahá'í House of Worship.", latitude: 28.5535, longitude: 77.2588, photo: "path_to_photo14.jpg" },
-    { id: 15, name: "Akshardham Temple", description: "A spiritual-cultural complex.", latitude: 28.6120, longitude: 77.2834, photo: "path_to_photo15.jpg" },
+    { id: 11, name: "Red Fort", description: "A symbol of India's freedom.", latitude: 28.6562, longitude: 77.2410, photo: "redfort.jpg" },
+    { id: 12, name: "India Gate", description: "A war memorial.", latitude: 28.6129, longitude: 77.2295, photo: "indiagate.jpg" },
+    { id: 13, name: "Qutub Minar", description: "The tallest brick minaret in the world.", latitude: 28.5244, longitude: 77.1855, photo: "qutubminar.jpg" },
+    { id: 14, name: "Lotus Temple", description: "A Bahá'í House of Worship.", latitude: 28.5535, longitude: 77.2588, photo: "lotus.jpg" },
+    { id: 15, name: "Akshardham Temple", description: "A spiritual-cultural complex.", latitude: 28.6120, longitude: 77.2834, photo: "akshardham.jpeg" },
   ],
   TamilNadu: [
-    { id: 16, name: "Meenakshi Temple", description: "An ancient temple.", latitude: 9.9250, longitude: 78.1198, photo: "path_to_photo16.jpg" },
-    { id: 17, name: "Ooty", description: "A popular hill station.", latitude: 11.4088, longitude: 76.6950, photo: "path_to_photo17.jpg" },
-    { id: 18, name: "Kanyakumari", description: "The southernmost tip of India.", latitude: 8.0884, longitude: 77.5551, photo: "path_to_photo18.jpg" },
-    { id: 19, name: "Mahabalipuram", description: "Famous for its rock-cut temples.", latitude: 12.6194, longitude: 80.1955, photo: "path_to_photo19.jpg" },
-    { id: 20, name: "Chennai Marina Beach", description: "One of the longest urban beaches.", latitude: 13.0487, longitude: 80.2953, photo: "path_to_photo20.jpg" },
+    { id: 16, name: "Meenakshi Temple", description: "An ancient temple.", latitude: 9.9250, longitude: 78.1198, photo: "meenakshi.jpg" },
+    { id: 17, name: "Ooty", description: "A popular hill station.", latitude: 11.4088, longitude: 76.6950, photo: "ooty.jpg" },
+    { id: 18, name: "Kanyakumari", description: "The southernmost tip of India.", latitude: 8.0884, longitude: 77.5551, photo: "kanyakumari.jpg" },
+    { id: 19, name: "Mahabalipuram", description: "Famous for its rock-cut temples.", latitude: 12.6194, longitude: 80.1955, photo: "mahabali.jpg" },
+    { id: 20, name: "Chennai Marina Beach", description: "One of the longest urban beaches.", latitude: 13.0487, longitude: 80.2953, photo: "cmbeach.jpg" },
   ],
 };
 
@@ -119,7 +119,7 @@ const HiddenAttractions = () => {
         <h2 className="text-2xl font-bold text-center mb-4">Hidden Attractions</h2>
       </div>
       <Tooltip id="info-tooltip" />
-      {selectedAttraction && <Confetti />}
+      {/* {selectedAttraction && <Confetti />} */} 
     </div>
   );
 };
