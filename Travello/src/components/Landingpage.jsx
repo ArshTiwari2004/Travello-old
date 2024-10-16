@@ -6,20 +6,20 @@ import Typewriter from 'typewriter-effect';
 
 const LandingPage = () => {
   return (
-    <div className="bg-off-white"> {/* Off-white background */}
+    <div className="bg-off-white"> 
       {/* Hero Section */}
       <div className="relative h-screen">
         <div className="relative z-10">
           {/* Header Section */}
           <motion.header
-            className="absolute top-0 w-full p-4 z-20 bg-sky-blue"  // Sky Blue Header
+            className="absolute top-0 w-full p-4 z-20 bg-sky-blue"  
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             <div className="container mx-auto flex justify-between items-center">
               <motion.h1
-                className="text-4xl font-extrabold tracking-wide text-off-white font-lobster"  // Off-white text
+                className="text-4xl font-extrabold tracking-wide text-off-white font-lobster"  
                 whileHover={{ scale: 1.1 }}
               >
                 Travello
@@ -31,13 +31,14 @@ const LandingPage = () => {
                 </Link>
                 <Link
                   to="/discover"
-                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
-                >
+                  className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat
+ >
                   <FaMapMarkedAlt className="inline mr-1" /> About Us
                 </Link>
                 <Link
-                  to="/leaderboard"
-                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
+                  to="/leaderboard
+                  className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
+
                 >
                   <FaTrophy className="inline mr-1" /> Popular Monuments
                 </Link>
