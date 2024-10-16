@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import AccountCreated from "./components/Accountcreated";
 import Dashboard from "./components/Dashboard";
 import SocialIntegration from "./components/Socials.jsx";
-import Leaderboard from "./components/Leaderboard.jsx";
+
 import CompleteChallengesPage from "./components/Challenges.jsx";
 import ProtectedRoute from './ProtectedRoutes.jsx';
 import { AuthProvider } from './context/authContext.jsx';
@@ -19,10 +19,20 @@ import { Toaster } from 'react-hot-toast';
 import Profile from "./components/Profile";
 import Localculture from "./components/localcultureimmersion";
 import Quests from "./components/Quests";
+import BlogSection from "./components/Blog";
+import Newsletter from "./components/Newsletter";
+import ReviewSection from "./components/Review";
+
 import Badges from "./components/Badges";
 import HiddenAttractions from "./components/Hiddenattractions";
 import OfflineMode from "./components/Offlinemode";
 import AchievementSection from "./components/Acheivemnt";
+
+import QuestsAndChallenges from "./components/QuestAndChalleneges";
+import Quest from "./components/Quest";
+import Challenge from "./components/Challenge";
+import Leaderboard from "./components/Leaderboard";
+
 
 
 
@@ -44,12 +54,20 @@ const App = () => {
             <Route path="/accountcreated" element={<AccountCreated />} />
             <Route path="/dashboard" element={<Dashboard />} /> 
             <Route path="/socials" element={<SocialIntegration />} />
+
             <Route path="/leaderboard" element={<Leaderboard />} />
+            {/* <Route path="/challenges" element={<CompleteChallengesPage />} /> */}
+
+          
             <Route path="/challenges" element={<CompleteChallengesPage />} />
+
             <Route path="/profile" element={<Profile />}/>
             <Route path="/localculture" element={<Localculture />}/>
 
             <Route path="/quests" element={<Quests />} />
+            <Route path="/Questsstwo" element = {<Quest />}/>
+            <Route path="/Challenge" element = {<Challenge />}/>
+            {/* <Route path="/qnc" element={<QuestsAndChallenges/>} /> */}
             <Route path="/my-badges" element={<Badges />} />
             <Route path="/hidden-attraction-maps" element={<HiddenAttractions />} />
             <Route path="/offline-mode" element={<OfflineMode />} />
@@ -74,7 +92,9 @@ const Landing = () => {
       <LandingPage />
       <About />
       <AchievementSection />
-
+      <ReviewSection />
+      <BlogSection />
+      <Newsletter />
     </div>
   );
 };
