@@ -19,11 +19,15 @@ import { Toaster } from 'react-hot-toast';
 import Profile from "./components/Profile";
 import Localculture from "./components/localcultureimmersion";
 import Quests from "./components/Quests";
-
+import BlogSection from "./components/Blog";
+import Newsletter from "./components/Newsletter";
 import ReviewSection from "./components/Review";
 
 import Badges from "./components/Badges";
 import HiddenAttractions from "./components/Hiddenattractions";
+import OfflineMode from "./components/Offlinemode";
+import AchievementSection from "./components/Acheivemnt";
+
 import QuestsAndChallenges from "./components/QuestAndChalleneges";
 import Quest from "./components/Quest";
 import Challenge from "./components/Challenge";
@@ -37,6 +41,7 @@ import NotFoundPage from "./components/NotFoundPage";
 const App = () => {
   return (
     <AuthProvider>
+
       <Router>
         <div className="flex flex-col min-h-screen">
           <main className="flex-grow">
@@ -81,6 +86,12 @@ const App = () => {
                   <HiddenAttractions />
                 </ProtectedRoute>} />
               <Route path="*" element={<NotFoundPage />} />
+            <Route path="/offline-mode" element={<OfflineMode />} />
+
+
+            <Route path="*" element={<NotFoundPage />} />
+
+
             </Routes>
           </main>
           <Footer />
@@ -99,7 +110,10 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <AchievementSection />
       <ReviewSection />
+      <BlogSection />
+      <Newsletter />
     </div>
   );
 };

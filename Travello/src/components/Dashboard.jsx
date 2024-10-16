@@ -128,6 +128,12 @@ const Dashboard = () => {
                         <Link to="/Challenge" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaTrophy className="mr-3" /> My Challenges
                         </Link>
+                        <Link to="/localculture" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaLeaf  className="mr-3" /> Local Immersion
+                        </Link>
+                        <Link to="/offline-mode" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaDownload className="mr-3" /> Offline Mode
+                        </Link>
                     </div>
                 </div>
                 <Link to="/profile" className="text-white flex items-center text-xl font-bold hover:text-gray-300">

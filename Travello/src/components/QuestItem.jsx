@@ -19,9 +19,9 @@ const QuestItem = ({ quest, onComplete }) => {
   };
 
   return (
-    <div className="border-2 border-purple-300 rounded-lg p-4 transition-all duration-300 hover:shadow-lg bg-white">
+    <div className="border-2 border-teal-300 rounded-lg p-4 transition-all duration-300 hover:shadow-lg bg-teal-200">
       <div className="flex justify-between items-center cursor-pointer" onClick={() => setExpanded(!expanded)}>
-        <h3 className="text-xl font-semibold text-purple-700">{quest.title}</h3>
+        <h3 className="text-xl font-semibold text-teal-700">{quest.title}</h3>
         <div className="flex items-center space-x-2">
           <span className={`px-2 py-1 rounded-full text-xs text-white ${getDifficultyColor(quest.difficulty)}`}>
             {quest.difficulty}
@@ -52,8 +52,8 @@ const QuestItem = ({ quest, onComplete }) => {
             disabled={completed}
             className={`mt-4 px-6 py-2 rounded-full transition-colors duration-200 ${
               completed
-                ? 'bg-green-500 text-white cursor-not-allowed'
-                : 'bg-purple-500 text-white hover:bg-purple-600'
+                ? 'bg-teal-700 text-white cursor-not-allowed'
+                : 'bg-mint text-white hover:bg-mint-600'
             }`}
           >
             {completed ? 'Completed' : 'Complete Quest'}
