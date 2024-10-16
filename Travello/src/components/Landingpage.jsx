@@ -31,13 +31,14 @@ const LandingPage = () => {
                 </Link>
                 <Link
                   to="/discover"
-                  className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
-                >
+                  className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat
+ >
                   <FaMapMarkedAlt className="inline mr-1" /> About Us
                 </Link>
                 <Link
-                  to="/leaderboard"
+                  to="/leaderboard
                   className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
+
                 >
                   <FaTrophy className="inline mr-1" /> Popular Monuments
                 </Link>
