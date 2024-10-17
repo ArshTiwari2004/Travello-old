@@ -11,10 +11,10 @@ const AchievementCard = ({ icon, value, label }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Disconnect after animation starts
+          observer.disconnect(); 
         }
       },
-      { threshold: 0.3 } // Trigger when 30% of the card is in view
+      { threshold: 0.3 } 
     );
 
     if (cardRef.current) {
